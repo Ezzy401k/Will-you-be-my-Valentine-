@@ -6,6 +6,7 @@ body {
     margin: 0;
     background-color: #f9e3e3;
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
 }
 
 .container {
@@ -15,10 +16,44 @@ body {
 .header_text {
     font-size: 3em;
     color: #d32f2f;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
+/* GIF responsiveness */
 .gif_container img {
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Confetti styling */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-10vh) rotate(0deg);
+    }
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
 }
