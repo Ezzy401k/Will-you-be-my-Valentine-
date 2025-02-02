@@ -13,5 +13,30 @@
             <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
         </div>
     </div>
+
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                document.body.appendChild(confetti);
+                
+                let colors = ["#d32f2f", "#ffbe0b", "#3a86ff", "#8338ec", "#ff006e"];
+                let size = Math.random() * 8 + 5; 
+                let leftPosition = Math.random() * window.innerWidth;
+                let animationDuration = Math.random() * 3 + 2;
+
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.left = `${leftPosition}px`;
+                confetti.style.animationDuration = `${animationDuration}s`;
+
+                setTimeout(() => confetti.remove(), animationDuration * 1000);
+            }
+        }
+
+        setInterval(createConfetti, 500);
+    </script>
 </body>
 </html>
